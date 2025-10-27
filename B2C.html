@@ -1,9 +1,36 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8" />
+   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Dashboard B2C</title>
+   <button id="logoutBtn">Cerrar sesión</button>
+    <script>
+  const rol = localStorage.getItem('rol');
+  const usuario = localStorage.getItem('usuario');
+
+  if (!rol) {
+    window.location.href = 'Login.html';
+  }
+
+  // Reglas de acceso
+  const pagina = window.location.pathname.split('/').pop();
+
+  const permisos = {
+    admin: ['index.html', 'B2B.html', 'B2C.html', 'BATAS.html', 'ECOM.html'],
+    GERENCIA: ['index.html', 'b2b.html', 'B2C.html', 'BATAS.html', 'ECOM.html'],
+    B2B: ['b2b.html'],
+    B2C: ['B2C.html'],
+    batas: ['BATAS.html'],
+    ecom: ['ECOM.html']
+  };
+
+  if (!permisos[rol].includes(pagina)) {
+    alert('No tienes permiso para acceder a esta página');
+    window.location.href = 'Login.html';
+  }
+</script>
+ 
   <style>
     body {
       margin: 0;
@@ -59,20 +86,6 @@
       border-radius: 8px;
     }
 
-    <style>
-  .container {
-    text-align: center;
-    margin-top: 40px;
-  }
-
-  iframe {
-    width: 90%;
-    height: 600px;
-    border: none;
-  }
-</style>
-
-
     iframe {
       width: 100%;
       height: 600px;
@@ -104,23 +117,28 @@
   </nav>
 
   <div class="container">
-
-  <iframe
-    title="REPORTE VENTAS"
-    width="1140"
-    height="541"
-    src="https://app.powerbi.com/reportEmbed?reportId=fb0fbbc6-2280-4980-b9ba-82184d0013e6&autoAuth=true&ctid=b529114b-bdfc-48ea-a201-e9d2ee342139"
-    frameborder="0"
-    allowFullScreen="true">
-  </iframe>
-</div>
+    <p></p>
+    <iframe
+       
+      src="https://app.powerbi.com/reportEmbed?reportId=fb0fbbc6-2280-4980-b9ba-82184d0013e6&autoAuth=true&ctid=b529114b-bdfc-48ea-a201-e9d2ee342139"
+      allowFullScreen="true">
+    </iframe>
+  </div>
 
   <footer>
-    &copy; 2025 Derlys Almirón | Portal de Reportes
+    &copy; 2025 Transformacion digital | Portal de Reportes
   </footer>
+  <script>
+document.getElementById("logoutBtn").addEventListener("click", function() {
+    // Elimina los datos del usuario
+    localStorage.removeItem("user");
+
+    // Redirige al login
+    window.location.href = "login.html";
+});
+</script>
 </body>
 </html>
-
 
 
 
