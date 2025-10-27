@@ -3,7 +3,33 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Dashboard B2B</title>
+  <title>Dashboard INTEGRAL</title>
+  <button id="logoutBtn">Cerrar sesión</button>
+   <script>
+  const rol = localStorage.getItem('rol');
+  const usuario = localStorage.getItem('usuario');
+
+  if (!rol) {
+    window.location.href = 'Login.html';
+  }
+
+  // Reglas de acceso
+  const pagina = window.location.pathname.split('/').pop();
+
+  const permisos = {
+    admin: ['index.html', 'B2B.html', 'B2C.html', 'BATAS.html', 'ECOM.html'],
+    GERENCIA: ['index.html', 'b2b.html', 'B2C.html', 'BATAS.html', 'ECOM.html'],
+    B2B: ['b2b.html'],
+    B2C: ['B2C.html'],
+    batas: ['BATAS.html'],
+    ecom: ['ECOM.html']
+  };
+
+  if (!permisos[rol].includes(pagina)) {
+    alert('No tienes permiso para acceder a esta página');
+    window.location.href = 'Login.html';
+  }
+</script>
   <style>
     body {
       margin: 0;
@@ -82,11 +108,11 @@
 
   <!-- Pestañas de navegación -->
   <nav class="tabs">
-    <a href="index.html" class="tab active">Panel integral</a>
+    <a href="index.html" class="tab active">Panel Integral</a>
     <a href="B2B.html" class="tab">B2B</a>
     <a href="B2C.html" class="tab">B2C</a>
     <a href="ECOM.html" class="tab">ECOM</a>
-    <a href="BATAS.html" class="tab">Batas</a>
+    <a href="BATAS.html" class="tab">BATAS</a>
   </nav>
 
   <div class="container">
@@ -97,18 +123,17 @@
   </div>
 
   <footer>
-    &copy; 2025 Transformación digital | Portal de Reportes
+    &copy; 2025 Transformacion digital | Portal de Reportes
   </footer>
+  <script>
+document.getElementById("logoutBtn").addEventListener("click", function() {
+    // Elimina los datos del usuario
+    localStorage.removeItem("user");
+
+    // Redirige al login
+    window.location.href = "login.html";
+});
+</script>
+
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-
-
