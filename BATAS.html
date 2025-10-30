@@ -18,8 +18,8 @@
 
   const permisos = {
     admin: ['index.html', 'B2B.html', 'B2C.html', 'BATAS.html', 'ECOM.html'],
-    GERENCIA: ['index.html', 'B2B.html', 'B2C.html', 'BATAS.html', 'ECOM.html'],
-    B2B: ['B2B.html'],
+    GERENCIA: ['index.html', 'b2b.html', 'B2C.html', 'BATAS.html', 'ECOM.html'],
+    B2B: ['b2b.html'],
     B2C: ['B2C.html'],
     batas: ['BATAS.html'],
     ecom: ['ECOM.html']
@@ -103,7 +103,7 @@
 <body>
   <header>
     <h1>Dashboard BATAS</h1>
-    <p></p>
+    <p>Existencia y facturación batas</p>
   </header>
 
   <!-- Pestañas de navegación -->
@@ -113,6 +113,7 @@
     <a href="B2C.html" class="tab">B2C</a>
     <a href="ECOM.html" class="tab">ECOM</a>
      <a href="BATAS.html" class="tab active">BATAS</a>
+       <a href="Tiendas_retail.html" class="tab">Tiendas</a>
   </nav>
 
   <div class="container">
@@ -133,10 +134,9 @@ document.getElementById("logoutBtn").addEventListener("click", function() {
     localStorage.removeItem("user");
 
     // Redirige al login
-    window.location.href = "Login.html";
+    window.location.href = "login.html";
 });
 </script>
 </body>
 </html>
-
 
