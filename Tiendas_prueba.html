@@ -220,11 +220,11 @@
     const permisos = {
       admin: ['index.html', 'B2B.html', 'B2C.html', 'BATAS.html', 'ECOM.html', 'Tiendas_retail.html', 'Tiendas_prueba.html'],
       GERENCIA: ['index.html', 'b2b.html', 'B2C.html', 'BATAS.html', 'ECOM.html', 'Tiendas_retail.html'],
-      B2B: ['b2b.html'],
+      B2B: ['b2b.html','Tiendas_prueba.html'],
       B2C: ['B2C.html', 'Tiendas_retail.html'],
       batas: ['BATAS.html'],
       ecom: ['ECOM.html'],
-      Tienda_retail: ['Tiendas_retail.html']
+      Tienda_retail: ['Tiendas_prueba.html']
     };
 
     if (!permisos[rol] || !permisos[rol].includes(pagina)) {
@@ -324,4 +324,5 @@
     })();
   </script>
 </body>
+
 </html>
