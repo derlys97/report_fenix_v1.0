@@ -130,9 +130,29 @@
   </iframe>
 </div>
 
+   <button id="mostrarMapaBtn">Mostrar mapa de paradas</button>
+    <div id="mapaContainer" style="display: none; margin-top: 20px;">
+  <iframe 
+    src="<iframe src="https://www.google.com/maps/d/u/0/embed?mid=1-rK-UtVizDMod8GV59bBoI2FyQAO00U&ehbc=2E312F&noprof=1" width="640" height="480"></iframe>"
+    width="95%"
+    height="500px"
+    frameborder="0"
+    allowfullscreen="true">
+  </iframe>
+</div>
+
+
   <footer>
     &copy; 2025 Transformacion digital | Portal de Reportes
   </footer>
+
+   <script>
+  document.getElementById("mostrarMapaBtn").addEventListener("click", function() {
+    const mapa = document.getElementById("mapaContainer");
+    mapa.style.display = mapa.style.display === "none" ? "block" : "none";
+  });
+</script>
+
   <script>
 document.getElementById("logoutBtn").addEventListener("click", function() {
     // Elimina los datos del usuario
@@ -144,6 +164,7 @@ document.getElementById("logoutBtn").addEventListener("click", function() {
 </script>
 </body>
 </html>
+
 
 
 
